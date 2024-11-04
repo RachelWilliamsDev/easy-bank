@@ -33,33 +33,35 @@ const NavBar = () => {
   }, [mobileNavRef]);
 
   return (
-    <div className="relative flex flex-row w-full bg-neutral-white h-20 justify-between items-center max-w-7xl mx-auto px-8">
-      <div className="flex">
-        <Image src="/images/logo.svg" alt="" width={139} height={20} />
-      </div>
-      <div className="hidden md:flex space-x-8 text-sm font-medium text-neutral-grayishBlue">
-        {pages.map((page, i) => (
-          <Link key={i} href={page.href}>
-            {page.name}
-          </Link>
-        ))}
-      </div>
+    <div className="z-50 bg-neutral-white shadow-sm">
+      <div className="relative flex flex-row w-full h-20 justify-between items-center max-w-7xl mx-auto px-8 ">
+        <div className="flex">
+          <Image src="/images/logo.svg" alt="" width={139} height={20} />
+        </div>
+        <div className="hidden md:flex space-x-8 text-sm font-medium text-neutral-grayishBlue">
+          {pages.map((page, i) => (
+            <Link key={i} href={page.href}>
+              {page.name}
+            </Link>
+          ))}
+        </div>
 
-      <RequestInviteButton />
-      <div className="md:hidden">
-        <Image
-          src="/images/icon-hamburger.svg"
-          alt="menu icon"
-          width={24}
-          height={24}
-          onClick={() => setIsMobileNavigationOpen(!isMobileNavigationOpen)}
+        <RequestInviteButton />
+        <div className="md:hidden">
+          <Image
+            src="/images/icon-hamburger.svg"
+            alt="menu icon"
+            width={24}
+            height={24}
+            onClick={() => setIsMobileNavigationOpen(!isMobileNavigationOpen)}
+          />
+        </div>
+        <MobileNavigation
+          open={isMobileNavigationOpen}
+          pages={pages}
+          ref={mobileNavRef}
         />
       </div>
-      <MobileNavigation
-        open={isMobileNavigationOpen}
-        pages={pages}
-        ref={mobileNavRef}
-      />
     </div>
   );
 };
