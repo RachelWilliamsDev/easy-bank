@@ -3,7 +3,7 @@ import RequestInviteButton from "./RequestInviteButton";
 
 const Header = () => {
   return (
-    <header className="bg-neutral-veryLightGray relative w-screen">
+    <header className="bg-gradient-to-b from-neutral-veryLightGray to-neutral-white relative w-screen">
       <div className="absolute -top-24 right-0 lg:hidden max-w-[533px]">
         <Image
           src="/images/bg-intro-mobile.svg"
@@ -23,8 +23,8 @@ const Header = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-between py-8 lg:py-[180px] px-8 max-w-7xl w-full mx-auto relative mt-[440px] lg:mt-0">
-          <div className="max-w-md mb-8 lg:mb-0 lg:mr-16 z-50">
-            <h1 className="text-center md:text-left text-5xl font-semibold text-primary-darkBlue mb-4">
+          <div className="max-w-[390px] mb-8 lg:mb-0 lg:mr-16 z-50">
+            <h1 className="text-center md:text-left text-5xl font-light text-primary-darkBlue mb-4">
               Next generation digital banking
             </h1>
             <p className="text-center md:text-left text-neutral-grayishBlue mb-6">
