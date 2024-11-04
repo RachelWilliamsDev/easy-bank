@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import MobileNavigation from "./MobileNavigation";
 import RequestInviteButton from "./RequestInviteButton";
 
 const NavBar = () => {
@@ -10,8 +13,27 @@ const NavBar = () => {
     { name: "Blog", href: "/blog" },
     { name: "Careers", href: "/careers" },
   ];
+
+  const [isMobileNavigationOpen, setIsMobileNavigationOpen] = useState(false);
+  const mobileNavRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        mobileNavRef.current &&
+        !mobileNavRef.current.contains(event.target)
+      ) {
+        setIsMobileNavigationOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mobileNavRef]);
+
   return (
-    <div className="flex flex-row w-full bg-white h-20 justify-between items-center max-w-7xl mx-auto px-8">
+    <div className="relative flex flex-row w-full bg-neutral-white h-20 justify-between items-center max-w-7xl mx-auto px-8">
       <div className="flex">
         <Image src="/images/logo.svg" alt="" width={139} height={20} />
       </div>
@@ -30,8 +52,14 @@ const NavBar = () => {
           alt="menu icon"
           width={24}
           height={24}
+          onClick={() => setIsMobileNavigationOpen(!isMobileNavigationOpen)}
         />
       </div>
+      <MobileNavigation
+        open={isMobileNavigationOpen}
+        pages={pages}
+        ref={mobileNavRef}
+      />
     </div>
   );
 };
