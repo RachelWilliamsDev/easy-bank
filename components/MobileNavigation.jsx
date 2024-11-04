@@ -5,7 +5,7 @@ const MobileNavigation = ({ open, pages, ref }) => {
   return (
     <div
       ref={ref}
-      className="absolute top-24 bg-neutral-white flex flex-col left-8 right-8 w-auto z-10 items-center p-4 rounded-md "
+      className="md:hidden absolute top-24 bg-neutral-white flex flex-col left-8 right-8 w-auto z-10 items-center p-4 rounded-md "
     >
       {pages.map((page, i) => (
         <Link
