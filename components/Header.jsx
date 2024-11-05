@@ -3,8 +3,8 @@ import RequestInviteButton from "./RequestInviteButton";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-b from-neutral-veryLightGray to-neutral-white relative w-screen">
-      <div className="absolute -top-24 right-0 lg:hidden max-w-[533px]">
+    <header className="bg-gradient-to-b from-neutral-veryLightGray to-neutral-white relative w-full max-w-screen overflow-x-clip">
+      <div className="absolute -top-24 right-0 lg:hidden max-w-[533px] ">
         <Image
           src="/images/bg-intro-mobile.svg"
           alt=""
@@ -32,7 +32,9 @@ const Header = () => {
               one-stop-shop for spending, saving, budgeting, investing, and much
               more.
             </p>
-            <RequestInviteButton />
+            <div className="flex justify-center md:justify-start">
+              <RequestInviteButton />
+            </div>
           </div>
         </div>
         <div className="absolute top-[-300px] right-[-540px] hidden lg:flex">

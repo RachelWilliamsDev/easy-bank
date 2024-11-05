@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import Logo from "./Logo";
 import MobileNavigation from "./MobileNavigation";
 import RequestInviteButton from "./RequestInviteButton";
 
@@ -36,7 +37,7 @@ const NavBar = () => {
     <div className="z-50 bg-neutral-white shadow-sm">
       <div className="relative flex flex-row w-full h-20 justify-between items-center max-w-7xl mx-auto px-8 ">
         <div className="flex">
-          <Image src="/images/logo.svg" alt="" width={139} height={20} />
+          <Logo />
         </div>
         <div className="hidden md:flex space-x-8 text-sm font-medium text-neutral-grayishBlue">
           {pages.map((page, i) => (
@@ -46,7 +47,7 @@ const NavBar = () => {
           ))}
         </div>
 
-        <RequestInviteButton />
+        <RequestInviteButton hidden />
         <div className="md:hidden">
           <Image
             src="/images/icon-hamburger.svg"
