@@ -32,6 +32,7 @@ const Footer = () => {
           <div className="flex flex-row space-x-4 mt-14">
             {socials.map((social, i) => (
               <Image
+                key={i}
                 src={social.image}
                 alt={social.alt}
                 width={20}
