@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import LatestArticles from "@/components/LatestArticles";
 import NavBar from "@/components/NavBar";
 import WhyChooseEasybank from "@/components/WhyChooseEasybank";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <NavBar />
       <Header />
       <WhyChooseEasybank />
+      <LatestArticles />
     </main>
   );
 }
