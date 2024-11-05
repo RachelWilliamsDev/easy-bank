@@ -1,18 +1,24 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import FacebookLogo from "./FacebookLogo";
+import InstagramLogo from "./InstagramLogo";
 import Logo from "./Logo";
+import PinterestLogo from "./PinterestLogo";
 import RequestInviteButton from "./RequestInviteButton";
+import TwitterLogo from "./TwitterLogo";
+import YoutubeLogo from "./YoutubeLogo";
 
 const Footer = () => {
   const socials = [
     {
-      image: "/images/icon-facebook.svg",
+      image: <FacebookLogo />,
       alt: "Facebook",
     },
-    { image: "/images/icon-youtube.svg", alt: "Youtube" },
-    { image: "/images/icon-twitter.svg", alt: "Twitter" },
-    { image: "/images/icon-pinterest.svg", alt: "Pinterest" },
-    { image: "/images/icon-instagram.svg", alt: "Instagram" },
+    { image: <YoutubeLogo />, alt: "Youtube" },
+    { image: <TwitterLogo />, alt: "Twitter" },
+    { image: <PinterestLogo />, alt: "Pinterest" },
+    { image: <InstagramLogo />, alt: "Instagram" },
   ];
 
   const links = [
@@ -24,20 +30,19 @@ const Footer = () => {
     { name: "Privacy Policy", href: "/privacy-policy" },
   ];
 
+  const pathname = usePathname();
+
   return (
     <div className="bg-primary-darkBlue w-screen">
       <div className="flex flex-col md:flex-row max-w-7xl w-full px-8 mx-auto py-11 items-center md:items-start md:justify-between">
         <div className="flex flex-col items-center md:items-start">
-          <Logo color="#fff" />
+          <Link href="/" className="hover:cursor-pointer">
+            <Logo color="#fff" />
+          </Link>
+
           <div className="flex flex-row space-x-4 mt-14">
             {socials.map((social, i) => (
-              <Image
-                key={i}
-                src={social.image}
-                alt={social.alt}
-                width={20}
-                height={20}
-              />
+              <div key={i}>{social.image}</div>
             ))}
           </div>
         </div>
@@ -46,7 +51,11 @@ const Footer = () => {
             <Link
               key={i}
               href={link.href}
-              className="text-neutral-white text-center md:text-left"
+              className={` text-center md:text-left ${
+                pathname === link.href
+                  ? "text-primary-limeGreen"
+                  : "text-neutral-white"
+              }`}
             >
               {link.name}
             </Link>

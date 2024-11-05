@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import MobileNavigation from "./MobileNavigation";
@@ -14,6 +15,8 @@ const NavBar = () => {
     { name: "Blog", href: "/blog" },
     { name: "Careers", href: "/careers" },
   ];
+
+  const pathname = usePathname();
 
   const [isMobileNavigationOpen, setIsMobileNavigationOpen] = useState(false);
   const mobileNavRef = useRef(null);
@@ -36,13 +39,21 @@ const NavBar = () => {
   return (
     <div className="z-50 bg-neutral-white shadow-sm">
       <div className="relative flex flex-row w-full h-20 justify-between items-center max-w-7xl mx-auto px-8 ">
-        <div className="flex">
+        <Link href="/" className="hover:cursor-pointer">
           <Logo />
-        </div>
+        </Link>
         <div className="hidden md:flex space-x-8 text-sm font-medium text-neutral-grayishBlue">
           {pages.map((page, i) => (
             <Link key={i} href={page.href}>
-              {page.name}
+              <span
+                className={`relative ${
+                  pathname === page.href
+                    ? "border-b-2 border-primary-limeGreen"
+                    : ""
+                }`}
+              >
+                {page.name}
+              </span>
             </Link>
           ))}
         </div>
