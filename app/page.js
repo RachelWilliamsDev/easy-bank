@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LatestArticles from "@/components/LatestArticles";
 import NavBar from "@/components/NavBar";
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <WhyChooseEasybank />
       <LatestArticles />
+      <Footer />
     </main>
   );
 }
