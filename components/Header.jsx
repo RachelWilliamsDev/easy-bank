@@ -7,18 +7,20 @@ const Header = () => {
       <div className="absolute -top-24 right-0 lg:hidden max-w-[533px] ">
         <Image
           src="/images/bg-intro-mobile.svg"
-          alt=""
+          alt="header mobile background"
           width={533}
           height={400}
+          priority
         />
       </div>
       <div className="overflow-hidden relative">
         <div className="lg:hidden absolute top-[-226px] right-0 max-w-[533px]">
           <Image
             src={"/images/image-mockups.png"}
-            alt=""
+            alt="header mockups"
             width={768}
             height={939}
+            priority
           />
         </div>
 
@@ -40,18 +42,20 @@ const Header = () => {
         <div className="absolute top-[-300px] right-[-540px] hidden lg:flex">
           <Image
             src="/images/bg-intro-desktop.svg"
-            alt=""
+            alt="header background"
             width={1440}
             height={400}
+            priority
           />
         </div>
       </div>
       <div className="absolute top-[-124px] -right-32 hidden lg:flex">
         <Image
           src={"/images/image-mockups.png"}
-          alt=""
+          alt="header mockups"
           width={768}
           height={939}
+          priority
         />
       </div>
     </header>
